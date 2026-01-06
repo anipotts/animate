@@ -1,0 +1,425 @@
+/**
+ * AniMate Popup Styles - Compact Layout
+ */
+
+.popup {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+.popup-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.popup-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.btn-xs {
+  padding: 4px;
+}
+
+/* Rows */
+.popup-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.popup-row:last-child {
+  border-bottom: none;
+}
+
+/* Mini Widgets (Weather & GitHub) */
+.mini-widget {
+  flex: 1;
+  background: var(--color-bg-secondary);
+  border-radius: 6px;
+  padding: 8px;
+  min-height: 44px;
+}
+
+.widget-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Weather Mini */
+.weather-mini-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.weather-mini-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.weather-mini-temp {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.weather-mini-loc {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+}
+
+/* GitHub Mini */
+.github-mini-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.github-mini-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.github-mini-user {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.github-mini-stats {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+}
+
+/* Calendar Mini */
+.cal-mini-icon {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.cal-mini-icon.now {
+  color: var(--color-success);
+}
+
+.cal-mini-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.cal-mini-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-mini-title.now {
+  color: var(--color-success);
+}
+
+.cal-mini-time {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+}
+
+/* Gmail Mini */
+.gmail-mini-icon {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.gmail-mini-icon.has-mail {
+  color: var(--color-warning);
+}
+
+.gmail-mini-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.gmail-mini-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.gmail-mini-count.has-mail {
+  color: var(--color-warning);
+}
+
+.gmail-mini-label {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+}
+
+/* Google Sign In Button */
+.google-signin-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.google-signin-btn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-primary);
+}
+
+.google-signin-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Focus Card */
+.focus-card {
+  flex: 1;
+  background: var(--color-bg-secondary);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.focus-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.focus-label {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.focus-time {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}
+
+.focus-goal {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.progress-thin {
+  height: 4px;
+  background: var(--color-bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-thin {
+  height: 100%;
+  background: var(--color-success);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Stats Row */
+.stats-row {
+  justify-content: space-between;
+  padding: 6px 12px;
+}
+
+.stat-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-mini-value {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  line-height: 1.2;
+}
+
+.stat-mini-label {
+  font-size: 8px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Sites Row */
+.sites-row {
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 12px;
+}
+
+.sites-header {
+  margin-bottom: 2px;
+}
+
+.sites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.site-favicon {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.site-domain {
+  flex: 1;
+  font-size: 11px;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.site-time {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--color-text-tertiary);
+}
+
+.site-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.site-dot.productive { background: var(--color-productive); }
+.site-dot.distraction { background: var(--color-distraction); }
+.site-dot.neutral { background: var(--color-neutral); }
+
+/* Actions Row */
+.actions-row {
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.btn-compact {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-compact:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.btn-compact:active {
+  transform: scale(0.98);
+}
+
+.btn-compact svg {
+  opacity: 0.7;
+}
+
+/* Quick Launch Row */
+.quick-launch-row {
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+}
+
+.quick-launch-label {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 4px;
+}
+
+.quick-launch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--color-text-tertiary);
+}
+
+.quick-launch-btn:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.quick-launch-btn:active {
+  transform: translateY(0);
+}
+
+.quick-launch-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Utility */
+.text-xs { font-size: 10px; }
+.text-tertiary { color: var(--color-text-tertiary); }
+.text-productive { color: var(--color-productive); }
+.text-distraction { color: var(--color-distraction); }
+.text-accent { color: var(--color-primary); }

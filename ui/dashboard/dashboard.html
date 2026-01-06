@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMate Dashboard</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="../../assets/icon-48.png" alt="AniMate" class="sidebar-logo">
+        <h1 class="sidebar-title">AniMate</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#overview" class="nav-item active" data-view="overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Overview
+        </a>
+        <a href="#browsing" class="nav-item" data-view="browsing">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Browsing
+        </a>
+        <a href="#clipboard" class="nav-item" data-view="clipboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+          Clipboard
+        </a>
+        <a href="#tabs" class="nav-item" data-view="tabs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+          </svg>
+          Tabs
+        </a>
+        <a href="#network" class="nav-item" data-view="network">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          Network
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#" class="nav-item" id="openSettings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Overview View -->
+      <div id="view-overview" class="view active">
+        <header class="view-header">
+          <h2 class="view-title">Overview</h2>
+          <span class="view-date" id="overviewDate">Loading...</span>
+        </header>
+
+        <!-- Life Dashboard Cards -->
+        <section class="widget-grid">
+          <!-- Focus Progress -->
+          <div class="card widget-lg">
+            <div class="card-header">
+              <span class="card-title">Today's Focus</span>
+            </div>
+            <div class="flex items-end gap-6">
+              <div class="stat">
+                <span class="stat-value text-3xl" id="dashFocusTime">0:00</span>
+                <span class="stat-label">of 4h goal</span>
+              </div>
+              <div class="flex-1">
+                <div class="progress" style="height: 12px;">
+                  <div class="progress-bar progress-bar-success" id="dashFocusProgress" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Productive Time</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value text-productive" id="dashProductiveTime">--</span>
+              <span class="stat-label">Today</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Distraction Time</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value text-distraction" id="dashDistractionTime">--</span>
+              <span class="stat-label">Today</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Open Tabs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value text-accent" id="dashTabCount">--</span>
+              <span class="stat-label">Current</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Clipboard Items</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="dashClipboardCount">--</span>
+              <span class="stat-label">Today</span>
+            </div>
+          </div>
+
+          <!-- Top Sites -->
+          <div class="card widget-lg">
+            <div class="card-header">
+              <span class="card-title">Top Sites Today</span>
+            </div>
+            <div id="dashTopSites" class="list">
+              <div class="loading-placeholder">Loading...</div>
+            </div>
+          </div>
+
+          <!-- Weather Widget -->
+          <div class="card" id="weatherWidget">
+            <div class="card-header">
+              <span class="card-title">Weather</span>
+              <span class="text-tertiary text-sm" id="weatherLocation">--</span>
+            </div>
+            <div id="weatherContent" class="loading-placeholder">Loading weather...</div>
+          </div>
+
+          <!-- GitHub Widget -->
+          <div class="card widget-lg" id="githubWidget">
+            <div class="card-header">
+              <span class="card-title">GitHub</span>
+              <span class="text-tertiary text-sm" id="githubUser">--</span>
+            </div>
+            <div id="githubContent" class="loading-placeholder">Loading GitHub data...</div>
+          </div>
+
+          <!-- Calendar Placeholder -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Calendar</span>
+              <span class="badge">Coming Soon</span>
+            </div>
+            <p class="text-sm text-tertiary">Connect Google Calendar in Settings</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Browsing View -->
+      <div id="view-browsing" class="view">
+        <header class="view-header">
+          <h2 class="view-title">Browsing Intelligence</h2>
+        </header>
+        <div class="card">
+          <p class="text-tertiary">Detailed browsing analytics coming in Phase 3...</p>
+        </div>
+      </div>
+
+      <!-- Clipboard View -->
+      <div id="view-clipboard" class="view">
+        <header class="view-header">
+          <h2 class="view-title">Clipboard Vault</h2>
+          <div class="flex gap-2">
+            <input type="text" class="input" placeholder="Search clipboard..." id="clipboardSearch" style="width: 250px;">
+          </div>
+        </header>
+        <div id="clipboardList" class="card">
+          <div class="loading-placeholder">Loading clipboard history...</div>
+        </div>
+      </div>
+
+      <!-- Tabs View -->
+      <div id="view-tabs" class="view">
+        <header class="view-header">
+          <h2 class="view-title">Tab Commander</h2>
+          <button class="btn btn-primary" id="saveSession">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Save Current Session
+          </button>
+        </header>
+
+        <div class="flex gap-4 items-start">
+          <div class="stat-card" style="padding: var(--space-4);">
+            <span class="stat-value text-accent" id="tabsCurrentCount">--</span>
+            <span class="stat-label">Tabs Open</span>
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="card-header">
+            <span class="card-title">Saved Sessions</span>
+          </div>
+          <div id="sessionsList">
+            <div class="loading-placeholder">Loading sessions...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network View -->
+      <div id="view-network" class="view">
+        <header class="view-header">
+          <h2 class="view-title">Network Sniffer</h2>
+          <div class="flex gap-2">
+            <input type="text" class="input" placeholder="Filter by domain..." id="networkFilter" style="width: 250px;">
+          </div>
+        </header>
+        <div id="networkLog" class="card">
+          <div class="loading-placeholder">Loading network log...</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

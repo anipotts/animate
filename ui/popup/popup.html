@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMate</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="flex items-center gap-2">
+        <img src="../../assets/icon-48.png" alt="AniMate" class="popup-logo">
+        <h1 class="popup-title">AniMate</h1>
+      </div>
+      <div class="flex items-center gap-1">
+        <button class="btn btn-ghost btn-icon btn-xs" id="openSettings" title="Settings">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+        </button>
+        <button class="btn btn-ghost btn-icon btn-xs" id="openDashboard" title="Open Dashboard">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Weather & GitHub Row (TOP) -->
+    <section class="popup-row">
+      <div class="mini-widget" id="weatherCard">
+        <div id="popupWeather" class="widget-content">
+          <span class="text-xs text-tertiary">Loading...</span>
+        </div>
+      </div>
+      <div class="mini-widget" id="githubCard">
+        <div id="popupGithub" class="widget-content">
+          <span class="text-xs text-tertiary">Loading...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar & Gmail Row -->
+    <section class="popup-row">
+      <div class="mini-widget" id="calendarCard">
+        <div id="popupCalendar" class="widget-content">
+          <span class="text-xs text-tertiary">Loading...</span>
+        </div>
+      </div>
+      <div class="mini-widget" id="gmailCard">
+        <div id="popupGmail" class="widget-content">
+          <span class="text-xs text-tertiary">Loading...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus Progress -->
+    <section class="popup-row">
+      <div class="focus-card">
+        <div class="focus-header">
+          <span class="focus-label">Focus</span>
+          <span class="focus-time" id="focusTime">0:00</span>
+          <span class="focus-goal">/ 4h</span>
+        </div>
+        <div class="progress-thin">
+          <div class="progress-bar-thin" id="focusProgress" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats Row -->
+    <section class="popup-row stats-row">
+      <div class="stat-mini">
+        <span class="stat-mini-value text-productive" id="productiveTime">--</span>
+        <span class="stat-mini-label">Productive</span>
+      </div>
+      <div class="stat-mini">
+        <span class="stat-mini-value text-distraction" id="distractionTime">--</span>
+        <span class="stat-mini-label">Distraction</span>
+      </div>
+      <div class="stat-mini">
+        <span class="stat-mini-value text-accent" id="tabCount">--</span>
+        <span class="stat-mini-label">Tabs</span>
+      </div>
+      <div class="stat-mini">
+        <span class="stat-mini-value" id="clipboardCount">--</span>
+        <span class="stat-mini-label">Clips</span>
+      </div>
+    </section>
+
+    <!-- Top Sites (compact) -->
+    <section class="popup-row sites-row">
+      <div class="sites-header">
+        <span class="text-xs text-tertiary">Top Sites</span>
+      </div>
+      <div id="topSites" class="sites-list">
+        <span class="text-xs text-tertiary">Loading...</span>
+      </div>
+    </section>
+
+    <!-- Quick Launch (Task Initiation Support) -->
+    <section class="popup-row quick-launch-row">
+      <span class="quick-launch-label">Start:</span>
+      <button class="quick-launch-btn" id="launchGmail" title="Open Gmail">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </button>
+      <button class="quick-launch-btn" id="launchCalendar" title="Open Calendar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+      </button>
+      <button class="quick-launch-btn" id="launchGitHub" title="Open GitHub">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </button>
+      <button class="quick-launch-btn" id="launchNotion" title="Open Notion">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.98-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.886l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952l1.448.327s0 .84-1.168.84l-3.22.186c-.094-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.454-.233 4.763 7.279v-6.44l-1.215-.14c-.093-.514.28-.886.747-.933zM2.876 1.215l13.308-.933c1.634-.14 2.055-.047 3.081.7l4.249 2.986c.7.513.933.653.933 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.13-4.06c-.56-.747-.793-1.306-.793-1.96V2.755c0-.84.374-1.54 1.452-1.54z"/>
+        </svg>
+      </button>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="popup-row actions-row">
+      <button class="btn-compact" id="saveTabSession" title="Save tabs">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+          <polyline points="17 21 17 13 7 13 7 21"></polyline>
+        </svg>
+        Save Tabs
+      </button>
+      <button class="btn-compact" id="viewClipboard" title="Clipboard history">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        </svg>
+        Clipboard
+      </button>
+    </section>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+/**
+ * AniMate Options Page Styles
+ */
+
+.options {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+/* Header */
+.options-header {
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
+}
+
+.options-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+}
+
+.options-title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Content */
+.options-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Sections */
+.settings-section {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.section-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Setting Rows */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-label {
+  display: block;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.setting-description {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+.setting-control {
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+
+.setting-control .input {
+  min-width: 150px;
+}
+
+/* Toggle Switch */
+.toggle {
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-tertiary);
+  top: 3px;
+  left: 3px;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.toggle:checked {
+  background: var(--color-primary-muted);
+}
+
+.toggle:checked::before {
+  transform: translateX(20px);
+  background: var(--color-primary);
+}
+
+/* Footer */
+.options-footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .setting-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .setting-control {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .setting-control .input {
+    width: 100%;
+  }
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMate Settings</title>
+  <link rel="stylesheet" href="../ui/styles/base.css">
+  <link rel="stylesheet" href="../ui/styles/theme.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options">
+    <header class="options-header">
+      <div class="flex items-center gap-3">
+        <img src="../assets/icon-48.png" alt="AniMate" class="options-logo">
+        <div>
+          <h1 class="options-title">AniMate Settings</h1>
+          <p class="text-sm text-tertiary">Configure your executive function co-pilot</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="options-content">
+      <!-- Focus & Productivity -->
+      <section class="settings-section">
+        <h2 class="section-title">Focus & Productivity</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Daily Focus Goal</label>
+            <p class="setting-description">Target productive hours per day</p>
+          </div>
+          <div class="setting-control">
+            <select class="input" id="dailyFocusGoalMinutes">
+              <option value="120">2 hours</option>
+              <option value="180">3 hours</option>
+              <option value="240">4 hours</option>
+              <option value="300">5 hours</option>
+              <option value="360">6 hours</option>
+              <option value="480">8 hours</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Distraction Alert Threshold</label>
+            <p class="setting-description">Alert after this much cumulative distraction time</p>
+          </div>
+          <div class="setting-control">
+            <select class="input" id="distractionAlertMinutes">
+              <option value="30">30 minutes</option>
+              <option value="60">1 hour</option>
+              <option value="90">1.5 hours</option>
+              <option value="120">2 hours</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Enable Distraction Alerts</label>
+            <p class="setting-description">Show notification when threshold is exceeded</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" class="toggle" id="enableDistractionAlerts">
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Management -->
+      <section class="settings-section">
+        <h2 class="section-title">Tab Management</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Tab Warning Threshold</label>
+            <p class="setting-description">Show warning when you have this many tabs open</p>
+          </div>
+          <div class="setting-control">
+            <select class="input" id="tabWarningThreshold">
+              <option value="15">15 tabs</option>
+              <option value="20">20 tabs</option>
+              <option value="30">30 tabs</option>
+              <option value="50">50 tabs</option>
+              <option value="100">100 tabs</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Enable Tab Warnings</label>
+            <p class="setting-description">Show notification when threshold is exceeded</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" class="toggle" id="enableTabWarnings">
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Configuration -->
+      <section class="settings-section">
+        <h2 class="section-title">AI Configuration</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Anthropic API Key</label>
+            <p class="setting-description">For AI-powered site classification. Get one at console.anthropic.com</p>
+          </div>
+          <div class="setting-control" style="width: 300px;">
+            <input type="password" class="input" id="anthropicApiKey" placeholder="sk-ant-...">
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Enable AI Classification</label>
+            <p class="setting-description">Use Claude Haiku to classify sites as productive/distracting</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" class="toggle" id="aiEnabled">
+          </div>
+        </div>
+      </section>
+
+      <!-- External Services -->
+      <section class="settings-section">
+        <h2 class="section-title">External Services</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">GitHub Personal Access Token</label>
+            <p class="setting-description">For tracking your repos. Create at github.com/settings/tokens</p>
+          </div>
+          <div class="setting-control" style="width: 300px;">
+            <input type="password" class="input" id="githubPat" placeholder="ghp_...">
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">OpenWeather API Key</label>
+            <p class="setting-description">For weather on dashboard. Get one at openweathermap.org</p>
+          </div>
+          <div class="setting-control" style="width: 300px;">
+            <input type="password" class="input" id="weatherApiKey" placeholder="API key">
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Google Calendar & Gmail</label>
+            <p class="setting-description">Connect your Google account for calendar and email</p>
+          </div>
+          <div class="setting-control">
+            <button class="btn btn-secondary" id="connectGoogle">Connect Google</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Management -->
+      <section class="settings-section">
+        <h2 class="section-title">Data Management</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Data Retention</label>
+            <p class="setting-description">How long to keep browsing and clipboard data</p>
+          </div>
+          <div class="setting-control">
+            <select class="input" id="retentionDays">
+              <option value="7">7 days</option>
+              <option value="14">14 days</option>
+              <option value="30">30 days</option>
+              <option value="60">60 days</option>
+              <option value="90">90 days</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Auto Export</label>
+            <p class="setting-description">Automatically export data weekly to Downloads</p>
+          </div>
+          <div class="setting-control">
+            <input type="checkbox" class="toggle" id="autoExport">
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Export Data Now</label>
+            <p class="setting-description">Download all your data as JSON</p>
+          </div>
+          <div class="setting-control">
+            <button class="btn btn-secondary" id="exportNow">Export</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Reset All Data</label>
+            <p class="setting-description text-error">This will delete all stored data permanently</p>
+          </div>
+          <div class="setting-control">
+            <button class="btn btn-ghost text-error" id="resetData">Reset Data</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="options-footer">
+      <p class="text-sm text-tertiary">AniMate v1.0.0 • Made for Ani by Claude</p>
+    </footer>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

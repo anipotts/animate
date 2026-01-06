@@ -1,0 +1,44 @@
+{
+  "memories": [],
+  "manual_memories": [],
+  "realtime_memories": [
+    {
+      "type": "consolidated",
+      "content": "AniMate Chrome Extension - Tech Stack: Vanilla JS + ES Modules (no build), dark theme UI, 2-space indent, semicolons, double quotes. Branding: lavender #B4A7D6 on dark navy #0D0D1A.",
+      "added_at": "2026-01-05T18:52:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "consolidated",
+      "content": "API keys configured: GitHub PAT, Anthropic API (Claude Haiku), OpenWeather API. Google OAuth working via chrome.identity with client ID 946033739086-tpvj6ts9o903qkf7c2ht7cpbjhjf9fgg.",
+      "added_at": "2026-01-05T21:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "consolidated",
+      "content": "UI Preferences: Popup must be compact/non-scrollable (320px width), Weather & GitHub widgets at TOP. Dashboard is full-page analytics view.",
+      "added_at": "2026-01-05T18:52:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "consolidated",
+      "content": "Completed Features: Browsing tracking, AI domain classification (Haiku batch/5min), clipboard vault, tab sessions, network logging, weather/GitHub/Calendar/Gmail widgets, weekly export, daily stats heartbeat, executive function support (morning briefing, start nudges, meeting awareness, distraction alerts, progress celebrations, quick launch buttons).",
+      "added_at": "2026-01-05T21:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "consolidated",
+      "content": "Design Decisions: 30-day retention, weekly JSON exports, 4hr focus goal, 1hr distraction threshold, 20 tab warning, exclude auth pages. Executive function: 9AM briefing, 10AM nudge, 6PM summary, 5min meeting warning.",
+      "added_at": "2026-01-05T21:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "consolidated",
+      "content": "User Context: Night owl tendencies (flexible schedule, no guilt). Primary challenge is task initiation. Prefers gentle nudges only (never blocking). Extension helps with external prompts to start work.",
+      "added_at": "2026-01-05T21:00:00.000000",
+      "source": "consolidation"
+    }
+  ],
+  "created_at": "2026-01-05T17:00:16.693680",
+  "updated_at": "2026-01-05T21:00:00.000000"
+}
